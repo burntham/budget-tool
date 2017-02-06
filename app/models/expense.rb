@@ -10,7 +10,7 @@
 #
 
 class Expense < ApplicationRecord
-  has_many :expense_details
+  has_many :expense_details, dependent: :destroy
 
   accepts_nested_attributes_for :expense_details
 end
