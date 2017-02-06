@@ -21,11 +21,12 @@
     <%= f.text_field :description %>
   </div>
 
-    <div class="field">
-      <%= fields_for :expense_details, build_or_use_expense_detail(@expense) do |ed| %>
-      <%= ed.number_field :amount %>
-      <%= ed.text_field :category %>
-      <% end %>
+    <%= f.fields_for :expense_details do |details| %>
+        <%= render 'expense_detail_fields', f: details %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add expense details', f, :expense_details %>
     </div>
 
   <div class="actions">
