@@ -8,7 +8,9 @@
 #  category    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  expense_id  :integer
 #
 
 class ExpenseDetail < ApplicationRecord
+  belongs_to :expense
 end

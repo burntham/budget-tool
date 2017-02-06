@@ -21,6 +21,13 @@
     <%= f.text_field :description %>
   </div>
 
+    <div class="field">
+      <%= fields_for :expense_details, build_or_use_expense_detail(@expense) do |ed| %>
+      <%= ed.number_field :amount %>
+      <%= ed.text_field :category %>
+      <% end %>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,4 +11,6 @@
 
 class Expense < ApplicationRecord
   has_many :expense_details
+
+  accepts_nested_attributes_for :expense_details
 end
