@@ -1,2 +1,0 @@
-class ReceiptCatagory < ApplicationRecord
-end
