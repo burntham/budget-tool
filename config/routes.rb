@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :budget do
+    resources :budgets
+  end
   resources :budgets
   resources :expense_details
   resources :expenses
