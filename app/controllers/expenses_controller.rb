@@ -25,7 +25,6 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
-
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
@@ -75,6 +74,7 @@ class ExpensesController < ApplicationController
                                           [:amount,
                                            :description,
                                            :category,
-                                           :expense_id])
+                                           :_destroy,
+                                           :id])
     end
 end

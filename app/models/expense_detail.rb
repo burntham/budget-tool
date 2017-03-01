@@ -12,6 +12,5 @@
 #
 
 class ExpenseDetail < ApplicationRecord
-  attr_accessor :amount, :description, :category
   belongs_to :expense, optional: true
 end
