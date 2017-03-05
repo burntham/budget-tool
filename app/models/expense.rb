@@ -7,9 +7,12 @@
 #  description  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  budget_id    :integer
 #
 
 class Expense < ApplicationRecord
+  belongs_to :budget, :class_name => 'Budget::Budget'
+
   has_many :expense_details, dependent: :destroy
 
   accepts_nested_attributes_for :expense_details
