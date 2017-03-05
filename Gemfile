@@ -42,6 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec'
   gem 'rails-controller-testing'
+  gem 'simplecov'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
 end
 
 group :development do
