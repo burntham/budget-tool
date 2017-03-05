@@ -1,0 +1,2 @@
+module Budget::CategoriesHelper
+end
