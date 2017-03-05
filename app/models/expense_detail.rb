@@ -13,4 +13,5 @@
 
 class ExpenseDetail < ApplicationRecord
   belongs_to :expense, optional: true
+  validates_presence_of :description, :amount, :expense_id
 end
