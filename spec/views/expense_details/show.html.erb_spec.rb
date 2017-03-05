@@ -5,7 +5,8 @@ RSpec.describe "expense_details/show", type: :view do
     @expense_detail = assign(:expense_detail, ExpenseDetail.create!(
       :amount => "9.99",
       :description => "Description",
-      :category => "Category"
+      :category => "Category",
+      :expense_id => 1
     ))
   end
 

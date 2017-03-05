@@ -6,12 +6,14 @@ RSpec.describe "expense_details/index", type: :view do
       ExpenseDetail.create!(
         :amount => "9.99",
         :description => "Description",
-        :category => "Category"
+        :category => "Category",
+        :expense_id => 1
       ),
       ExpenseDetail.create!(
         :amount => "9.99",
         :description => "Description",
-        :category => "Category"
+        :category => "Category",
+        :expense_id => 1
       )
     ])
   end
