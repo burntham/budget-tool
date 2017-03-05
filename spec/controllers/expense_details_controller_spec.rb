@@ -140,5 +140,4 @@ RSpec.describe ExpenseDetailsController, type: :controller do
       expect(response).to redirect_to(expense_details_url)
     end
   end
-
 end
