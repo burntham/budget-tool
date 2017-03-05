@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+    <div class="field">
+      <%= f.label :budget %>
+      <%= f.collection_select :budget_id, Budget::Budget.all, :id, :start_date %>
+    </div>
+
   <div class="field">
     <%= f.label :total_amount %>
     <%= f.text_field :total_amount %>
