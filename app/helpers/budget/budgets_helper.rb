@@ -1,0 +1,2 @@
+module Budget::BudgetsHelper
+end

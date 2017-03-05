@@ -1,0 +1,35 @@
+<%= form_for(budget_budget) do |f| %>
+  <% if budget_budget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(budget_budget.errors.count, "error") %> prohibited this budget_budget from being saved:</h2>
+
+      <ul>
+      <% budget_budget.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+    <%= f.fields_for :category_details do |details| %>
+        <%= render 'category_detail_fields', f: details %>
+    <% end %>
+
+    <div class="links">
+      <%= link_to_add_association 'add category', f, :category_details %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
