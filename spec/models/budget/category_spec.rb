@@ -22,7 +22,7 @@ RSpec.describe Budget::Category, type: :model do
 
     let(:invalid_parameters){
       {
-          random: 'something'
+          name: 'something'
       }
     }
 
@@ -32,7 +32,7 @@ RSpec.describe Budget::Category, type: :model do
     end
 
     it 'fails validation if invalid paramaters are used' do
-      expect(Budget::category.new(invalid_parameters)).to be_invalid
+      expect(Budget::Category.new(invalid_parameters)).to be_invalid
     end
   end
 end
