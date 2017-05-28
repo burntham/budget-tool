@@ -2,13 +2,14 @@
 #
 # Table name: expense_details
 #
-#  id          :integer          not null, primary key
-#  amount      :decimal(, )
-#  description :string
-#  category    :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  expense_id  :integer
+#  id                        :integer          not null, primary key
+#  amount                    :decimal(, )
+#  description               :string
+#  category                  :string
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  expense_id                :integer
+#  budget_category_detail_id :integer
 #
 
 require 'rails_helper'

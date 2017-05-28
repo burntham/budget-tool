@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :budget do
     resources :budgets
-    resources :categories, only: [:index, :new, :create, :show, :edit]
+    resources :categories #, only: [:index, :new, :create, :show, :edit]
 
 
   end
