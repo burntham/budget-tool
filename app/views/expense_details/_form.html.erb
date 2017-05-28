@@ -22,8 +22,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.collection_select :budget_category_detail_id, Budget::CategoryDetail.all, :id, :name %>
   </div>
 
   <div class="actions">

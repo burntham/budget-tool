@@ -1,7 +1,9 @@
 <div class="nested-fields">
   <%= f.label :amount%>
   <%= f.number_field :amount %>
-  <%= f.label :category%>
-  <%= f.text_field :category %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :category %>
+  <%= f.collection_select :budget_category_detail_id, Budget::Budget.first.category_details, :id, :name %>
   <%= link_to_remove_association "remove expense detail", f %>
 </div>

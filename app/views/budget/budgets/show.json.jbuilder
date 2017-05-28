@@ -1,1 +1,0 @@
-json.partial! "budget_budgets/budget_budget", budget_budget: @budget_budget

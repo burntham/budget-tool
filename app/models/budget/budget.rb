@@ -12,6 +12,7 @@
 class Budget::Budget < ApplicationRecord
   has_many :category_details, dependent: :destroy
   has_many :expenses
+  has_many :expense_details, through: :expenses
 
   accepts_nested_attributes_for :category_details, :expenses
 end

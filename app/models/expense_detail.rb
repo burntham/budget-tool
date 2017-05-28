@@ -14,8 +14,6 @@
 
 class ExpenseDetail < ApplicationRecord
   belongs_to :expense, optional: true
-  has_one :budget_category, :class_name => 'Budget::Category'
-  has_one :budget_category_detail, :class_name => 'Budget::CategoryDetail'
 
-  validates_presence_of :description, :amount, :expense_id
+  validates_presence_of :description, :amount
 end
