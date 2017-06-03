@@ -7,6 +7,13 @@ class Budget::BudgetsController < ApplicationController
 
   def show
     @budget = Budget::Budget.find(params[:id])
+
+    @category_details = @budget.category_details
+    @total_budget = @category_details.sum(:budgeted_amount)
+    @allocations = @category_details.inject({}){ |res, detail|
+      res[detail.name] = (detail.budgeted_amount/@total_budget).round(2) * 100
+      res
+    }
   end
 
   # GET /budget/budgets/new
