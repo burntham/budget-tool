@@ -16,4 +16,6 @@ class ExpenseDetail < ApplicationRecord
   belongs_to :expense, optional: true
 
   validates_presence_of :description, :amount
+
+  self.table_name = 'expense_details'
 end

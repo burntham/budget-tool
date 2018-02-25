@@ -14,4 +14,6 @@ class Budget::Category < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :group
 
+  self.table_name = 'budget_categories'
+
 end

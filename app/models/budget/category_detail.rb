@@ -15,4 +15,5 @@ class Budget::CategoryDetail < ApplicationRecord
   belongs_to :budget, optional: true
   has_many :expense_details
   has_one :budget_category, :class_name => 'Budget::Category'
+  self.table_name = 'budget_category_details'
 end

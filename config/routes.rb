@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :budget do
-    resources :budgets
     resources :categories #, only: [:index, :new, :create, :show, :edit]
 
 
