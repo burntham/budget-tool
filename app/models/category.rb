@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Budget::Category < ApplicationRecord
+class Category < ApplicationRecord
 
   validates_presence_of :name
   validates_presence_of :group

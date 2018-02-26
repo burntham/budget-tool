@@ -10,7 +10,7 @@
 #
 
 class Budget < ApplicationRecord
-  has_many :category_details, dependent: :destroy, class_name: 'Budget::CategoryDetail'
+  has_many :category_details, dependent: :destroy, class_name: 'CategoryDetail'
   has_many :expenses
   has_many :expense_details, through: :expenses
 
