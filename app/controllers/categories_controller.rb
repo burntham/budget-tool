@@ -1,11 +1,11 @@
-class Budget::CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
   def new
     @category = Budget::Category.new
   end
 
   def create
     category = Budget::Category.create!(category_params)
-    redirect_to new_budget_category_path
+    redirect_to new_category_path
   end
 
   def index
@@ -21,6 +21,6 @@ class Budget::CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:budget_category).permit(:name, :group)
+    params.require(:category).permit(:name, :group)
   end
 end

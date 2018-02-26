@@ -4,6 +4,6 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.label :category %>
-  <%= f.collection_select :budget_category_detail_id, Budget::Budget.first.category_details, :id, :name %>
+  <%= f.collection_select :category, Budget.first.category_details, :id, :name %>
   <%= link_to_remove_association "remove expense detail", f %>
 </div>
