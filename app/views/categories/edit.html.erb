@@ -16,7 +16,7 @@
     <td><%= @category.name %></td>
     <td><%= @category.group %></td>
     <td><%= link_to 'Show', @category %></td>
-    <td><%= link_to 'Edit', edit_budget_category_path(@category) %></td>
+    <td><%= link_to 'Edit', edit_category_path(@category) %></td>
     <td><%= link_to 'Destroy', @category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Budget Budget', new_budget_budget_path %>
+<%= link_to 'New Budget', new_budget_path %>

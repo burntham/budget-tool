@@ -1,0 +1,39 @@
+<budget>
+  <header>Budget dated: <%= @budget.start_date %> to <%= @budget.end_date %> </header>
+
+  <section class="summary">
+    <h1>Summary</h1>
+    <div>Budget: <%= @total_budget %></div>
+    <table>
+      <th>Category</th>
+      <th>Allocated %</th>
+      <% @allocations.each do |name, percent| %>
+          <tr>
+            <td><%= name %></td>
+            <td><%= percent %></td>
+          </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <section class="expenses">
+    <div class="categories">
+      <table>
+        <th>Category</th>
+        <th>Budgeted</th>
+        <th>remaining</th>
+        <% @category_details.each do |category| %>
+            <tr>
+              <td><%= category.name %></td>
+              <td><%= category.budgeted_amount %></td>
+              <td><%= @budget.expense_details.where(budget_category_detail_id: category.id).sum(:amount) %></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </section>
+</budget>
+<!--<p id="notice"><%= notice %></p>-->
+
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
+<%= link_to 'Back', budgets_path %>
