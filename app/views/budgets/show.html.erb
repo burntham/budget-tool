@@ -22,11 +22,11 @@
         <th>Category</th>
         <th>Budgeted</th>
         <th>remaining</th>
-        <% @category_details.each do |category| %>
+        <% @category_summaries.each do |category| %>
             <tr>
-              <td><%= category.name %></td>
-              <td><%= category.budgeted_amount %></td>
-              <td><%= @budget.expense_details.where(budget_category_detail_id: category.id).sum(:amount) %></td>
+              <td><%= category[:name] %></td>
+              <td><%= category[:budgeted_amount] %></td>
+              <td><%= category[:remaining_amount] %></td>
             </tr>
         <% end %>
       </table>

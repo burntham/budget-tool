@@ -14,6 +14,13 @@ class BudgetsController < ApplicationController
       res[detail.name] = (detail.budgeted_amount/@total_budget).round(2) * 100
       res
     }
+    @category_summaries = @budget.category_details.map do |detail|
+      {
+        name: detail.name,
+        budgeted_amount: detail.budgeted_amount,
+        remaining_amount: detail.budgeted_amount - @budget.expense_details.where(budget_category_detail_id: detail.id).sum(:amount)
+      }
+    end
   end
 
   # GET /budget/budgets/new
