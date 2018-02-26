@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Budget Budgets</h1>
+<h1>Budgets</h1>
 
 <table>
   <thead>
@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @budget_budgets.each do |budget_budget| %>
+    <% @budgets.each do |budget_budget| %>
       <tr>
         <td><%= budget_budget.start_date %></td>
         <td><%= budget_budget.end_date %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Budget Budget', new_budget_path %>
+<%= link_to 'New Budget', new_budget_path %>

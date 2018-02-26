@@ -1,5 +1,5 @@
 <budget>
-  <header>Budget dated: <%= @budget_budget.start_date %> to <%= @budget_budget.end_date %> </header>
+  <header>Budget dated: <%= @budget.start_date %> to <%= @budget.end_date %> </header>
 
   <section class="summary">
     <h1>Summary</h1>
@@ -35,5 +35,5 @@
 </budget>
 <!--<p id="notice"><%= notice %></p>-->
 
-<%= link_to 'Edit', edit_budget_path(@budget_budget) %> |
+<%= link_to 'Edit', edit_budget_path(@budget) %> |
 <%= link_to 'Back', budgets_path %>
