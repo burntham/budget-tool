@@ -1,4 +1,4 @@
-class Budget::CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
   def new
     @category = Budget::Category.new
   end
