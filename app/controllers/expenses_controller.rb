@@ -10,9 +10,11 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @budget = Budget.first
   end
 
   def edit
+    @budget = Budget.first
   end
 
   def create
