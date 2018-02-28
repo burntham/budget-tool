@@ -11,7 +11,7 @@
 #
 
 class Expense < ApplicationRecord
-  belongs_to :budget, :class_name => 'Budget::Budget', optional: true
+  belongs_to :budget, :class_name => 'Budget', optional: true
 
   has_many :expense_details, dependent: :destroy
 

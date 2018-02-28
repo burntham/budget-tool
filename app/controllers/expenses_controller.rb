@@ -1,52 +1,57 @@
-class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  class ExpensesController < ApplicationController
+    before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @expenses = Expense.all
-  end
+    def index
+      @budget = Budget.first
+      @expenses = Expense.all
+      render 'index'
+    end
 
-  def show
-  end
+    def show
+      @budget = Budget.first
+    end
 
-  def new
-    @expense = Expense.new
-    @budget = Budget.first
-  end
+    def new
+      @expense = Expense.new
+      @budget = Budget.first
+    end
 
-  def edit
-    @budget = Budget.first
-  end
+    def edit
+      @budget = Budget.first
+    end
 
-  def create
-    @expense = Expense.new(expense_params)
-    respond_to do |format|
-      if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
-      else
-        format.html { render :new }
+    def create
+      @expense = Expense.new(expense_params)
+      @budget = Budget.first
+      respond_to do |format|
+        if @expense.save
+          format.html { redirect_to budget_expense_path(@budget, @expense), notice: 'Expense was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
     end
-  end
 
-  def update
-    respond_to do |format|
-      if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
-      else
-        format.html { render :edit }
+    def update
+      @budget = Budget.first
+      respond_to do |format|
+        if @expense.update(expense_params)
+          format.html { redirect_to budget_expense_path(@budget, @expense), notice: 'Expense was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
     end
-  end
 
-  def destroy
-    @expense.destroy
-    respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
-      format.json { head :no_content }
+    def destroy
+      @expense.destroy
+      respond_to do |format|
+        format.html { redirect_to budget_expenses_path(budget: @budget), notice: 'Expense was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
-  end
 
-  private
+    private
     def set_expense
       @expense = Expense.find(params[:id])
     end
@@ -57,11 +62,11 @@ class ExpensesController < ApplicationController
                                       :description,
                                       :budget_id,
                                       expense_details_attributes:
-                                          [:amount,
-                                           :description,
-                                           :category,
-                                           :budget_category_detail_id,
-                                           :_destroy,
-                                           :id])
+                                        [:amount,
+                                         :description,
+                                         :category,
+                                         :budget_category_detail_id,
+                                         :_destroy,
+                                         :id])
     end
-end
+  end

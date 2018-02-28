@@ -16,9 +16,9 @@
       <tr>
         <td><%= expense.total_amount %></td>
         <td><%= expense.description %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', budget_expense_path(@budget, expense) %></td>
+        <td><%= link_to 'Edit', edit_budget_expense_path(budget: @budget, id: expense) %></td>
+        <td><%= link_to 'Destroy', budget_expense_path(id: expense.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Expense', new_expense_path %>
+<%= link_to 'New Expense', new_budget_expense_path %>

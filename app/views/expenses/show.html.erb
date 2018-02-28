@@ -10,5 +10,5 @@
   <%= @expense.description %>
 </p>
 
-<%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', expenses_path %>
+<%= link_to 'Edit', edit_budget_expense_path(@budget, @expense) %>
+<%= link_to 'Back', budget_expenses_path(@budget) %>
