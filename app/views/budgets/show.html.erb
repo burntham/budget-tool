@@ -8,10 +8,10 @@
     <table>
       <th>Category</th>
       <th>Allocated %</th>
-      <% @allocations.each do |name, percent| %>
+      <% @allocations.each do |category_allocation| %>
           <tr>
-            <td><%= name %></td>
-            <td><%= percent %></td>
+            <td><%= category_allocation[:category] %></td>
+            <td><%= category_allocation[:budget_allocation] %></td>
           </tr>
       <% end %>
     </table>
@@ -20,12 +20,14 @@
   <section class="expenses">
     <div class="categories">
       <table>
+        <th>Detail</th>
         <th>Category</th>
         <th>Budgeted</th>
         <th>remaining</th>
         <% @category_summaries.each do |category| %>
             <tr>
               <td><%= category[:name] %></td>
+              <td><%= category[:category] %></td>
               <td><%= category[:budgeted_amount] %></td>
               <td><%= category[:remaining_amount] %></td>
             </tr>
@@ -34,7 +36,6 @@
     </div>
   </section>
 </budget>
-<!--<p id="notice"><%= notice %></p>-->
 
 <%= link_to 'Edit', edit_budget_path(@budget) %> |
 <%= link_to 'Back', budgets_path %>

@@ -11,9 +11,15 @@
 #
 
 class Expense < ApplicationRecord
+  before_save :update_total_amount
+
   belongs_to :budget, :class_name => 'Budget', optional: true
 
   has_many :expense_details, dependent: :destroy
 
   accepts_nested_attributes_for :expense_details
+
+  def update_total_amount
+    self.total_amount = expense_details.sum(&:amount)
+  end
 end

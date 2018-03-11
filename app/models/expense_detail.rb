@@ -14,7 +14,7 @@
 
 class ExpenseDetail < ApplicationRecord
   belongs_to :expense, optional: true
-  # has_one :category_detail, foreign_key: :budget_category_detail_id
+  has_one :category_detail, foreign_key: :budget_category_detail_id
 
   validates_presence_of :description, :amount
 

@@ -20,6 +20,11 @@ class CategoriesController < ApplicationController
     @category = Budget::Category.find(params[:id])
   end
 
+  def destroy
+    Budget::Category.find(params[:id]).destroy
+    redirect_to categories_path
+  end
+
   def category_params
     params.require(:category).permit(:name, :group)
   end

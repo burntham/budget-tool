@@ -10,13 +10,20 @@ class BudgetsController < ApplicationController
 
     @category_details = @budget.category_details
     @total_budget = @category_details.sum(:budgeted_amount)
-    @allocations = @category_details.inject({}){ |res, detail|
-      res[detail.name] = (detail.budgeted_amount/@total_budget).round(2) * 100
-      res
+    @category_budget_summary =  @budget.category_details.group(:category).sum(:budgeted_amount)
+
+    @allocations = @category_budget_summary.map{ |name, budget_amount|
+      {
+        category: name,
+        budget_allocation: (budget_amount/@total_budget).round(2) * 100,
+        budget_allocation_spent: @budget.expense_details.where(category: name).sum(:amount)
+      }
     }
+
     @category_summaries = @budget.category_details.map do |detail|
       {
         name: detail.name,
+        category: detail.category,
         budgeted_amount: detail.budgeted_amount,
         remaining_amount: detail.budgeted_amount - @budget.expense_details.where(budget_category_detail_id: detail.id).sum(:amount)
       }
@@ -84,7 +91,9 @@ class BudgetsController < ApplicationController
                                             category_details_attributes: [
                                               :id,
                                               :name,
-                                              :budgeted_amount
+                                              :budgeted_amount,
+                                              :budget_category_id,
+                                              :category
                                             ]
       )
     end
