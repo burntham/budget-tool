@@ -6,8 +6,6 @@ class BudgetsController < ApplicationController
   end
 
   def show
-    @budget = Budget.find(params[:id])
-
     @category_details = @budget.category_details
     @total_budget = @category_details.sum(:budgeted_amount)
     @category_budget_summary =  @budget.category_details.group(:category).sum(:budgeted_amount)

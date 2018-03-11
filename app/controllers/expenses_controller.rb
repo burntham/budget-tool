@@ -2,27 +2,27 @@
     before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
     def index
-      @budget = Budget.first
-      @expenses = Expense.all
+      @budget = Budget.find(params[:budget_id])
+      @expenses = @budget.expenses
       render 'index'
     end
 
     def show
-      @budget = Budget.first
+      @budget = Budget.find(params[:budget_id])
     end
 
     def new
-      @expense = Expense.new
       @budget = Budget.first
+      @expense = Expense.new
     end
 
     def edit
-      @budget = Budget.first
+      @budget = Budget.find(params[:budget_id])
     end
 
     def create
       @expense = Expense.new(expense_params)
-      @budget = Budget.first
+      @budget = Budget.find(params[:budget_id])
       respond_to do |format|
         if @expense.save
           format.html { redirect_to budget_expense_path(@budget, @expense), notice: 'Expense was successfully created.' }
@@ -33,7 +33,7 @@
     end
 
     def update
-      @budget = Budget.first
+      @budget = Budget.find(params[:budget_id])
       respond_to do |format|
         if @expense.update(expense_params)
           format.html { redirect_to budget_expense_path(@budget, @expense), notice: 'Expense was successfully updated.' }
