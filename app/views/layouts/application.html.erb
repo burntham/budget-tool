@@ -9,8 +9,12 @@
   </head>
 
   <body>
-  <%= render 'layouts/navigation' %>
+    <%= render 'layouts/navigation' %>
 
-    <%= yield %>
+    <p id="notice"><%= notice %></p>
+
+    <div class="container bg-light">
+      <%= yield %>
+    </div>
   </body>
 </html>
