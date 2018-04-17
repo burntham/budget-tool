@@ -9,9 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+
+    <p id="notice"><%= notice %></p>
+
+    <div class="container bg-light">
+      <%= yield %>
+    </div>
   </body>
-  <p>
-    <%= link_to 'home', root_path %>
-  </p>
 </html>
