@@ -47,6 +47,12 @@ group :development, :test do
   gem 'simplecov'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'factory_girl_rails'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', '~> 2.1'
+
 end
 
 group :development do
